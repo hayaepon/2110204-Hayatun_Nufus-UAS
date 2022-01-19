@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>tugas p.web</title>
+   </head>
+<body>
+
+<p><h3>Form Pendaftaran Mahasiswa</h3></p>
+
+<form id="myForm" action="/action_page.php">
+  Nama : <input type="text" id="nama"><br><br>
+  Jenis kelamin: <input type="radio" id="jenis_kelamin" value="pria">pria
+  <input type="radio" id="jenis_kelamin" value="wanita">wanita<br><br>
+  prodi : <select id="prodi">
+  		<option value = "-1" selected>-pilih-</option>
+        <option value = "Teknik Informatika">Teknik informatika</option>
+        <option value ="Sistem Informasi">sistem informasi</option></select><br><br>
+   Hoby : <input type="checkbox" name="hoby" value="coding">coding
+   <input type="checkbox" id="hoby" value="jalan-jalan">jalan-jalan
+   <input type="checkbox" id="hoby" value="makan">makan<br><br>
+  <button onclick="kirim()">kirim</button><br> 
+</form>
+<div id="tampilan"></div>
+<script>
+function kirim() {
+var id_nama= document.getElementById("nama");
+var id_jenis_kelamin= document.getElementById("jenis_kelamin");
+var id_prodi= document.getElementById("prodi");
+var id_hoby=document.getElementById("hoby");
+var id_tamp=document.getElementById("tampilan");
+id_tamp.innerText = ("Nama : "+id_nama.value+"\n"+"Jenis Kelamin : "+ id_jenis_kelamin.value+"\n"+"Prodi : "+id_prodi.value+"\n"+"Hoby : "+ id_hoby.value);
+}
+</script>
+
+</body>
+</html>
+ 
