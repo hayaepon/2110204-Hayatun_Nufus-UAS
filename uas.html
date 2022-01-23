@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+</head>
+<body>
+   <h2>Pemesanan Tiket Maskapai</h2> 
+   <p>=========================</p>
+<form id="form">
+Nama Pemesan : <input type="text" name="nama" id="nama"><br><br>
+Jumlah Tiket : <input type="text" name="jumlah" id="jumlah"><br><br>
+
+kelas        : <select name="kelas" id="kelas">
+    <option value="Ekonomi">Ekonomi</option>
+    <option value="Bisnis">Bisnis</option>
+    <option value="Eksekutif">Eksekutif</option>
+</select><br><br>
+Bagasi       : <input type="radio" name="bagasi" value="5kg" id="">5kg<input type="radio" name="bagasi" value="10kg" id="">10kg<input type="radio" name="bagasi" value="15kg">15kg<br><br>
+Asuransi     : <input type="checkbox" name="asuransi" value="Asuransi jiwa" id="">Asuransi jiwa <input type="checkbox" name="asuransi" value="Asuransi kecelakaan" id="">Asuransi kecelakaan
+<input type="checkbox" name="asuransi" value="Asuransi keterlambatan" id="">Asuransi keterlambatan<br><br>
+<button onclick="addHtmlTableRow();">submit</button>
+<button type="reset">batal</button>
+<table id="table" border="1">
+   <tr>
+       <th>Nama pemesan</th>
+     <th>jumlah tiket</th>
+       <th>kelas</th>
+       <th>bagasi</th>
+       <th>asuransi</th>
+   </tr>
+</table> 
+
+</form>
+   
+</body>
+</html>
+
+<script>
+    document.getElementById("form").onsubmit=submit
+
+    function addHtmlTableRow()
+    {
+var table = document.getElementById("table"),
+        newRow = table.insertRow(table.length),
+        cell1 = newRow.insertCell(0),
+        cell2 = newRow.insertCell(1),
+        cell3 = newRow.insertCell(2),
+        cell4 = newRow.insertCell(3),
+        cell5 = newRow.insertCell(4),
+
+        nama = document.getElementById("nama").value,
+        jumlah = document.getElementById("jumlah").value,
+        kelas = document.getElementById("kelas").value,
+        bagasi = bagasi=document.querySelector("input[name=bagasi]:checked")?document.querySelector("input[name=bagasi]:checked").value:"Bimbang",
+        asuransi = document.querySelectorAll("input[name=asuransi]:checked");
+
+        cell1.innerHTML = nama;
+        cell2.innerHTML = jumlah;
+        cell3.innerHTML = kelas;
+        cell4.innerHTML = bagasi;
+        cell5.innerHTML = asuransi;
+
+    }
+  
+</script>

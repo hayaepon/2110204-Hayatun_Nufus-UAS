@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>coba</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+</head>
+<body>
+   <h2>Pemesanan Tiket Maskapai</h2> 
+   <p>=========================</p>
+<form id="form">
+Nama Pemesan : <input type="text" name="nama" id="nama"><br><br>
+Jumlah Tiket : <input type="text" name="jumlah" id="jumlah"><br><br>
+
+kelas        : <select name="kelas" id="kelas">
+    <option value="Ekonomi">Ekonomi</option>
+    <option value="Bisnis">Bisnis</option>
+    <option value="Eksekutif">Eksekutif</option>
+</select><br><br>
+Bagasi       : <input type="radio" name="bagasi" value="5kg" id="">5kg<input type="radio" name="bagasi" value="10kg" id="">10kg<input type="radio" name="bagasi" value="15kg">15kg<br><br>
+Asuransi     : <input type="checkbox" name="asuransi" value="Asuransi jiwa" id="">Asuransi jiwa <input type="checkbox" name="asuransi" value="Asuransi kecelakaan" id="">Asuransi kecelakaan
+<input type="checkbox" name="asuransi" value="Asuransi keterlambatan" id="">Asuransi keterlambatan<br><br>
+
+<input type="submit" value="Kirim">
+<input type="reset" value="batal">
+</form>
+
+</body>
+</html>
+
+<script>
+    document.getElementById("form").onsubmit=submit
+
+    function submit(){
+        let jon=document.getElementById("nama").value
+        let jumlah=document.getElementById("jumlah").value
+        let kelas=document.getElementById("kelas").value
+        let bagasi=document.querySelector("input[name=bagasi]:checked")?document.querySelector("input[name=bagasi]:checked").value:"Bimbang"
+        let nasuransi=document.querySelectorAll("input[name=asuransi]:checked")
+        let asuransi=[]
+        
+        for(let a=0;a<nasuransi.length;a++){
+            asuransi.push(nasuransi[a].value)
+        }
+        let biaya=0.0;
+        if(bagasi=="5kg"){
+            biaya = 100000;
+        }
+        else if(bagasi=="10kg"){
+            biaya= 150000;
+        }
+        else if(bagasi=="15kg"){
+            biaya = 200000;
+        }
+        let harsu=0.0;
+        if(asuransi==""){
+            harsu=harsu;
+        }
+        let pot=0.0;
+        let dis=0.0;
+        if(jumlah>=3){
+        dis = 0.3;
+        }
+        let harga=0.0;
+        let fasilitas="";
+        let sub=0.0;
+        if(kelas=="Ekonomi"){
+        harga = 1000000;
+        fasilitas ="Air mineral";
+        }
+        else if(kelas=="Bisnis"){
+        harga = 2000000;
+        fasilitas = "snack";
+        }
+        else if(kelas=="Eksekutif"){
+        harga = 3000000;
+        fasilitas = "makan";
+        }
+        sub = harga*jumlah-dis+biaya+harsu;
+        document.write("***Data Pemesanan tiket***<br>");
+        document.write(`nama : ${jon}<br>`);
+        document.write(`Jumlah tiket : ${jumlah}<br>`);
+        document.write(`kelas : ${kelas},${fasilitas}<br>`);
+        document.write(`bagasi : ${bagasi},${biaya}<br>`);
+        document.write(`hoby : ${asuransi.join(",")}<br>`);
+        document.write(`Total Harga : ${sub}<br>`);
+    }
+</script>
